@@ -4,8 +4,10 @@ import {
   faHeadset,
   faInfoCircle,
   faUserPlus,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; // Usamos React Router
 import logo from "../assets/2.png";
@@ -35,8 +37,9 @@ const Navbar = () => {
             Reservar
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
           </Link>
+
           <Link
-            to="/atencion"
+            to="/about"
             className="text-base font-light text-blue-600 relative group hover:text-blue-600"
           >
             <FontAwesomeIcon icon={faHeadset} className="mr-2" />
@@ -55,8 +58,9 @@ const Navbar = () => {
             Regístrate
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
           </Link>
+
           <Link
-            to="/quienes-somos"
+            to="/atencion"
             className="text-base font-light text-blue-600 relative group hover:text-blue-600"
           >
             <FontAwesomeIcon icon={faInfoCircle} className="mr-2" />
@@ -67,11 +71,21 @@ const Navbar = () => {
 
         {/* Botón del menú para móvil */}
         <button
-          className="md:hidden flex items-center text-blue-600 hover:text-blue-600"
-          onClick={toggleMenu}
-          aria-label="Toggle navigation menu"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="text-blue-600"
         >
-          <FontAwesomeIcon icon={faBars} className="h-6 w-6" />
+          {/* Botón que activa el menú */}
+          {isMenuOpen ? (
+            <motion.span
+              initial={{ rotate: 0 }}
+              animate={{ rotate: 360 }}
+              transition={{ duration: 0.5 }}
+            >
+              <FontAwesomeIcon icon={faXmark} className="text-xl" />
+            </motion.span>
+          ) : (
+            <FontAwesomeIcon icon={faBars} className="text-xl" />
+          )}
         </button>
 
         {/* Menú móvil */}
@@ -80,31 +94,34 @@ const Navbar = () => {
             <div className="flex flex-col items-center space-y-4 p-4">
               <Link
                 to="/reservar"
-                className="text-blue-600 hover:text-blue-600 "
+                className="text-blue-600 hover:text-blue-600"
                 onClick={() => setIsMenuOpen(false)}
               >
                 <FontAwesomeIcon icon={faCar} className="mr-2" />
                 Reservar
               </Link>
+
               <Link
-                to="/quienes-somos"
-                className="text-blue-600 hover:text-blue-600"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <FontAwesomeIcon icon={faInfoCircle} className="mr-2" />
-                Quiénes somos
-              </Link>
-              <Link
-                to="/atencion"
+                to="/about"
                 className="text-blue-600 hover:text-blue-600"
                 onClick={() => setIsMenuOpen(false)}
               >
                 <FontAwesomeIcon icon={faHeadset} className="mr-2" />
                 Atención al cliente
               </Link>
+
+              <Link
+                to="/atencion"
+                className="text-blue-600 hover:text-blue-600"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <FontAwesomeIcon icon={faInfoCircle} className="mr-2" />
+                Quiénes somos
+              </Link>
+
               <Link
                 to="/registro"
-                className="text-blue-600 hover:text-blue-600 "
+                className="text-blue-600 hover:text-blue-600"
                 onClick={() => setIsMenuOpen(false)}
               >
                 <FontAwesomeIcon icon={faUserPlus} className="mr-2" />

@@ -1,7 +1,8 @@
 import { motion } from "framer-motion"; // Animaciones dinámicas
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; // Usamos React Router
 import logo from "../assets/2.png";
-
+import Footer from "../components/Footer";
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -22,7 +23,7 @@ const Home = () => {
   return (
     <>
       <section
-        className="bg-blue-600 mt-28 text-white py-16 px-8"
+        className="bg-gradient-to-r from-blue-500 to-blue-700 mt-28 text-white py-16 px-8"
         id="nosotros"
       >
         <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
@@ -30,7 +31,7 @@ const Home = () => {
           <motion.img
             src={logo}
             alt="AeroPark Express Logo"
-            className="w-full max-w-md h-full mx-auto mt-8   block py-16 lg:hidden mb-8"
+            className="w-full max-w-md h-full mx-auto mt-8 block py-16 lg:hidden mb-8"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{
@@ -47,7 +48,7 @@ const Home = () => {
             transition={{ duration: 0.8 }}
           >
             <motion.h1
-              className="text-6xl font-extrabold leading-tight tracking-tight"
+              className="text-7xl font-extrabold font-roboto leading-tight tracking-tight"
               initial={{ opacity: 0, y: -50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -122,13 +123,13 @@ const Home = () => {
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full"></span>
           </a>
 
-          <a
-            href="#Calcula"
+          <Link
+            to="/reservar"
             className="text-base font-light text-blue-600 relative group hover:text-blue-600"
           >
             Calcula tu precio
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full"></span>
-          </a>
+          </Link>
 
           <a
             href="#Servicios"
@@ -139,6 +140,9 @@ const Home = () => {
           </a>
         </div>
       </div>
+
+      {/* Footer */}
+      <Footer />
     </>
   );
 };

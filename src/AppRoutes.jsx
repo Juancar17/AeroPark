@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import AboutUs from "./pages/AboutUs";
 import Contacto from "./pages/Contacto";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -18,6 +19,7 @@ const AppRoutes = () => {
       <Route path="/contacto" element={<Contacto />} />
       <Route path="/login" element={<Login />} />
       <Route path="/reservar" element={<Reservar />} />{" "}
+      <Route path="/about" element={<AboutUs />} />
       {/* Ruta para reservar */}
       {/* Ruta para atención */}
     </Routes>
