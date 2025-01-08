@@ -113,15 +113,15 @@ const Home = () => {
       </section>
 
       {/* Barra de navegación secundaria */}
-      <div className="bg-white shadow-md py-4">
+      <div className="bg-[#e2e2e1] shadow-md py-4">
         <div className="container mx-auto flex justify-center space-x-12">
-          <a
-            href="#Como"
+          <Link
+            to="/nosotros"
             className="text-base font-light text-blue-600 relative group hover:text-blue-600"
           >
             ¿Cómo funciona?
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full"></span>
-          </a>
+          </Link>
 
           <Link
             to="/reservar"

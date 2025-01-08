@@ -4,10 +4,8 @@ import {
   faHeadset,
   faInfoCircle,
   faUserPlus,
-  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; // Usamos React Router
 import logo from "../assets/2.png";
@@ -71,21 +69,11 @@ const Navbar = () => {
 
         {/* Botón del menú para móvil */}
         <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="text-blue-600"
+          className="md:hidden flex items-center text-blue-600 hover:text-blue-600"
+          onClick={toggleMenu}
+          aria-label="Toggle navigation menu"
         >
-          {/* Botón que activa el menú */}
-          {isMenuOpen ? (
-            <motion.span
-              initial={{ rotate: 0 }}
-              animate={{ rotate: 360 }}
-              transition={{ duration: 0.5 }}
-            >
-              <FontAwesomeIcon icon={faXmark} className="text-xl" />
-            </motion.span>
-          ) : (
-            <FontAwesomeIcon icon={faBars} className="text-xl" />
-          )}
+          <FontAwesomeIcon icon={faBars} className="h-6 w-6" />
         </button>
 
         {/* Menú móvil */}
@@ -94,7 +82,7 @@ const Navbar = () => {
             <div className="flex flex-col items-center space-y-4 p-4">
               <Link
                 to="/reservar"
-                className="text-blue-600 hover:text-blue-600"
+                className="text-blue-600 hover:text-blue-600 "
                 onClick={() => setIsMenuOpen(false)}
               >
                 <FontAwesomeIcon icon={faCar} className="mr-2" />
@@ -121,7 +109,7 @@ const Navbar = () => {
 
               <Link
                 to="/registro"
-                className="text-blue-600 hover:text-blue-600"
+                className="text-blue-600 hover:text-blue-600 "
                 onClick={() => setIsMenuOpen(false)}
               >
                 <FontAwesomeIcon icon={faUserPlus} className="mr-2" />

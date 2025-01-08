@@ -60,7 +60,7 @@ const Reservar = () => {
     <>
       <div className="min-h-screen mt-28 bg-gradient-to-r from-blue-500 to-blue-700 py-12 px-8">
         <motion.h2
-          className="text-5xl font-bold text-white mb-6 text-center font-roboto"
+          className=" mt-6 text-5xl font-bold text-white mb-6 text-center font-roboto"
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6 }}
@@ -68,8 +68,8 @@ const Reservar = () => {
           Calcula el coste de tu aparcamiento
         </motion.h2>
 
-        <div className="container mx-auto max-w-2xl bg-white shadow-md rounded-lg p-8">
-          <form onSubmit={calcularCoste} className="space-y-6">
+        <div className="container mx-auto max-w-2xl mt-12 bg-white shadow-md rounded-lg p-8">
+          <form onSubmit={calcularCoste} className="space-y-8">
             {/* Día de entrega */}
             <motion.div
               className="space-y-4"
