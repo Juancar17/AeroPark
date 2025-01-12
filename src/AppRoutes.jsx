@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Nosotros from "./pages/Nosotros";
 import Productos from "./pages/Productos";
+import QuienesSomos from "./pages/QuienesSomos";
 import Registro from "./pages/Registro";
 import Reservar from "./pages/Reservar"; // Importa el componente Reservar
 
@@ -20,6 +21,7 @@ const AppRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/reservar" element={<Reservar />} />{" "}
       <Route path="/about" element={<AboutUs />} />
+      <Route path="/QuienesSomos" element={<QuienesSomos />} />
       {/* Ruta para reservar */}
       {/* Ruta para atención */}
     </Routes>

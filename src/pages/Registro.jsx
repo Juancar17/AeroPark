@@ -50,7 +50,9 @@ const Registro = () => {
               transition={{ delay: 0.5 }}
             />
           </div>
-          <h2 className="text-4xl font-bold mb-4">Únete a AeroPark</h2>
+          <h2 className="text-4xl text-center font-bold mb-4">
+            Únete a AeroPark
+          </h2>
           <p className="mb-6">
             Regístrate y obtén{" "}
             <span className="font-bold">descuentos exclusivos</span> en tu
@@ -140,58 +142,64 @@ const Registro = () => {
 
           {/* Segundo formulario */}
           {showCarForm && (
-            <form className="space-y-6 mt-6">
-              <div>
-                <label className="block text-sm font-medium text-white mb-2">
-                  Marca del coche
-                </label>
-                <input
-                  type="text"
-                  name="cocheMarca"
-                  value={formData.cocheMarca}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
-                />
-              </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+            >
+              <form className="space-y-6 mt-6">
+                <div>
+                  <label className="block text-sm font-medium text-white mb-2">
+                    Marca del coche
+                  </label>
+                  <input
+                    type="text"
+                    name="cocheMarca"
+                    value={formData.cocheMarca}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+                  />
+                </div>
 
-              <div>
-                <label className="block text-sm font-medium text-white mb-2">
-                  Modelo del coche
-                </label>
-                <input
-                  type="text"
-                  name="cocheModelo"
-                  value={formData.cocheModelo}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
-                />
-              </div>
+                <div>
+                  <label className="block text-sm font-medium text-white mb-2">
+                    Modelo del coche
+                  </label>
+                  <input
+                    type="text"
+                    name="cocheModelo"
+                    value={formData.cocheModelo}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+                  />
+                </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Matrícula
-                </label>
-                <input
-                  type="text"
-                  name="matricula"
-                  value={formData.matricula}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
-                />
-              </div>
+                <div>
+                  <label className="block text-sm font-medium text-white mb-2">
+                    Matrícula
+                  </label>
+                  <input
+                    type="text"
+                    name="matricula"
+                    value={formData.matricula}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+                  />
+                </div>
 
-              <motion.button
-                type="submit"
-                className="w-full bg-green-600 text-white py-3 px-4 rounded-lg font-bold hover:bg-green-700 transition duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Finalizar registro
-              </motion.button>
-            </form>
+                <motion.button
+                  type="submit"
+                  className="w-full bg-green-600 text-white py-3 px-4 rounded-lg font-bold hover:bg-green-700 transition duration-300"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Finalizar registro
+                </motion.button>
+              </form>
+            </motion.div>
           )}
 
           <div className="mt-6 text-center">

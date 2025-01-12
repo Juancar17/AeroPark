@@ -1,19 +1,35 @@
-import { motion } from "framer-motion"; // Animaciones dinámicas
+import {
+  faCar,
+  faShieldAlt,
+  faUserFriends,
+} from "@fortawesome/free-solid-svg-icons"; // Iconos
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion"; // Para animaciones
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; // Usamos React Router
 import logo from "../assets/2.png";
 import Footer from "../components/Footer";
+
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const stats = [
     {
+      icon: faCar,
       label: "Recogida y entrega del vehículo",
       value: "A la hora que nos indiques",
     },
-    { label: "Clientes", value: "10K+ de toda España y del mundo" },
-    { label: "Confianza", value: "Cuidamos tu coche como si fuera nuestro" },
+    {
+      icon: faUserFriends,
+      label: "Clientes",
+      value: "10K+ de toda España y del mundo",
+    },
+    {
+      icon: faShieldAlt,
+      label: "Confianza",
+      value: "Cuidamos tu coche como si fuera nuestro",
+    },
   ];
 
   useEffect(() => {
@@ -34,10 +50,7 @@ const Home = () => {
             className="w-full max-w-md h-full mx-auto mt-8 block py-16 lg:hidden mb-8"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 1, // Duración de la animación en segundos
-              ease: "easeOut", // Suavizado
-            }}
+            transition={{ duration: 1, ease: "easeOut" }}
           />
 
           {/* Texto a la izquierda */}
@@ -51,21 +64,14 @@ const Home = () => {
               className="text-7xl font-extrabold font-roboto leading-tight tracking-tight"
               initial={{ opacity: 0, y: -50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 1, // Duración de la animación
-                ease: "easeOut",
-              }}
+              transition={{ duration: 1, ease: "easeOut" }}
             >
               Deja tu coche en buenas manos con{" "}
               <motion.span
                 className="font-extrabold text-[#e2e2e1] underline decoration-blue-500"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  duration: 1,
-                  delay: 0.5, // Retraso para que aparezca después del texto principal
-                  ease: "easeOut",
-                }}
+                transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
               >
                 AeroPark Express.
               </motion.span>
@@ -78,16 +84,20 @@ const Home = () => {
               entrega de vehículos, garantizando que tu coche estará en las
               mejores manos mientras disfrutas de tu viaje.
             </p>
+
             <ul className="space-y-4">
               {stats.map((stat, index) => (
                 <motion.li
                   key={index}
-                  className="flex items-center space-x-4"
+                  className="flex items-center space-x-4 bg-white bg-opacity-10 p-4 rounded-lg shadow-md"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: index * 0.3 }}
                 >
-                  <span className="text-2xl text-green-500">✔</span>
+                  <FontAwesomeIcon
+                    icon={stat.icon}
+                    className="text-3xl text-white"
+                  />
                   <div>
                     <p className="text-lg font-semibold">{stat.label}</p>
                     <p className="text-sm">{stat.value}</p>
@@ -104,10 +114,7 @@ const Home = () => {
             className="w-full h-full object-cover mx-auto hidden lg:block ml-32"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 1, // Duración de la animación en segundos
-              ease: "easeOut", // Suavizado
-            }}
+            transition={{ duration: 1, ease: "easeOut" }}
           />
         </div>
       </section>

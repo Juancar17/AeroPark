@@ -58,7 +58,7 @@ const Navbar = () => {
           </Link>
 
           <Link
-            to="/atencion"
+            to="/QuienesSomos"
             className="text-base font-light text-blue-600 relative group hover:text-blue-600"
           >
             <FontAwesomeIcon icon={faInfoCircle} className="mr-2" />
