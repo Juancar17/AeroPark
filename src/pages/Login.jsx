@@ -26,7 +26,7 @@ const Registro = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-400 to-blue-800">
       <motion.div
         className="flex flex-col md:flex-row w-full max-w-5xl bg-white shadow-lg rounded-lg overflow-hidden"
         initial={{ opacity: 0, scale: 0.8 }}
